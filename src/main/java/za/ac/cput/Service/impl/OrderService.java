@@ -7,6 +7,7 @@ import za.ac.cput.Repository.Interface.IOrderRepository;
 import za.ac.cput.Service.Interface.IOrderService;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrderService implements IOrderService {
@@ -36,8 +37,9 @@ public class OrderService implements IOrderService {
 
     @Override
     public Orders read(String s) {
-        return this.repository.findById(s).orElse(null);
-    }
+        Optional<Orders> order = this.repository.findById(s);
+        return order.orElse(null); }
+
 
     @Override
     public Orders update(Orders order) {

@@ -7,14 +7,14 @@
 // */
 //
 //import org.junit.jupiter.api.Test;
-//import za.ac.cput.Entity.Order;
+//import za.ac.cput.Entity.Orders;
 //import static org.junit.jupiter.api.Assertions.*;
 //
 //class OrderFactoryTest {
 //
 //    @Test
 //    void buildOrder() {
-//        Order order = new Order.Builder()
+//        Orders order = new Orders.Builder()
 //                .setCustID("Cust06")
 //                .setOrderID("ORD98")
 //                .setDriverID("DRV25")

@@ -4,9 +4,10 @@
 //import org.junit.jupiter.api.Test;
 //import org.junit.jupiter.api.TestMethodOrder;
 //import org.springframework.beans.factory.annotation.Autowired;
-//import za.ac.cput.Entity.Order;
+//import za.ac.cput.Entity.Orders;
 //import za.ac.cput.Factory.OrderFactory;
 //import za.ac.cput.Service.Interface.IOrderService;
+//import static org.junit.jupiter.api.Assertions.assertEquals;
 //
 //import static org.junit.jupiter.api.Assertions.*;
 //@TestMethodOrder(MethodOrderer.MethodName.class)
@@ -14,7 +15,7 @@
 //
 //    @Autowired
 //    private static OrderService orderServ;
-//    private static Order order = OrderFactory.createOrder(String
+//    private static Orders order = OrderFactory.createOrder("25856"
 //            , "ORD98","DRV25", 10, "Delivered", "14:32");
 //
 //    @Test
@@ -26,7 +27,7 @@
 //
 //    @Test
 //    void create() {
-//        Order created = orderServ.create(order);
+//        Orders created = orderServ.create(order);
 //        assertEquals(created.getOrderID(), order.getOrderID());
 //        System.out.println("\nCreated: " + created);
 //
@@ -34,7 +35,7 @@
 //
 //    @Test
 //    void read() {
-//        Order read = orderServ.read(order.getOrderID());
+//        Orders read = orderServ.read(order.getOrderID());
 //        assertNotNull(read);
 //        System.out.println("\nRead:\n" + read);
 //
@@ -42,7 +43,7 @@
 //
 //    @Test
 //    void update() {
-//        Order order1 = new Order.Builder().copy(order).setOrderID("ORD96").build();
+//        Orders order1 = new Orders.Builder().copy(order).setOrderID("ORD96").build();
 //        order1 = orderServ.update(order1);
 //        assertNotNull(orderServ.update(order1));
 //        System.out.println("\nUpdated: " + order1);

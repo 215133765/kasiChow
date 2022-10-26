@@ -19,11 +19,11 @@ public class Ratings {
     protected Ratings() {
     }
 
-    private Ratings(Builder builder) {
-        this.rateID = builder.rateID;
-        this.orderID = builder.orderID;
-        this.rateScale = builder.rateScale;
-        this.rateReview = builder.rateReview;
+    private Ratings(Ratings.Builder bui) {
+        this.rateID = bui.rateID;
+        this.orderID = bui.orderID;
+        this.rateScale = bui.rateScale;
+        this.rateReview = bui.rateReview;
 
     }
 
@@ -31,16 +31,32 @@ public class Ratings {
         return rateID;
     }
 
+    public void setRateID(int rateID) {
+        this.rateID = rateID;
+    }
+
     public String getOrderID() {
         return orderID;
+    }
+
+    public void setOrderID(String orderID) {
+        this.orderID = orderID;
     }
 
     public int getRateScale() {
         return rateScale;
     }
 
+    public void setRateScale(int rateScale) {
+        this.rateScale = rateScale;
+    }
+
     public String getRateReview() {
         return rateReview;
+    }
+
+    public void setRateReview(String rateReview) {
+        this.rateReview = rateReview;
     }
 
     @Override
