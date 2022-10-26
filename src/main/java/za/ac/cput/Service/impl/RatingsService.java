@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import za.ac.cput.Entity.Ratings;
 import za.ac.cput.Repository.Interface.IRatingsRepository;
-import za.ac.cput.Service.Interface.ICustomerService;
 import za.ac.cput.Service.Interface.IRatingsService;
 
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class RatingsService implements IRatingsService {
 
@@ -19,14 +19,13 @@ public class RatingsService implements IRatingsService {
 
     private RatingsService() {
     }
+    public static IRatingsService getRatingsService() {
 
-//    public static IRatingsService getIRatingsService() {
-//
-//        if(iRatingsService == null)
-//            iRatingsService = new IRatingsService();
-//        return iRatingsService;
-//
-//    }
+        if(ratingsService == null)
+            ratingsService = new RatingsService();
+        return ratingsService;
+
+    }
     @Override
     public Ratings create(Ratings ratings) {
         return this.repository.save(ratings);
@@ -34,8 +33,8 @@ public class RatingsService implements IRatingsService {
 
     @Override
     public Ratings read(String s) {
-        return this.repository.findById(s).orElse(null);
-    }
+        Optional<Ratings> optRat = this.repository.findById(s);
+        return optRat.orElse(null); }
 
     @Override
     public Ratings update(Ratings ratings) {
@@ -53,7 +52,7 @@ public class RatingsService implements IRatingsService {
             return true;    }
 
     @Override
-    public Set<Ratings> getAll() {
-        return this.repository.findAll().stream().collect(Collectors.toSet());
+    public List<Ratings> getAll() {
+        return this.repository.findAll();
     }
 }

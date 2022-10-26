@@ -13,7 +13,9 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class RatingsServiceTest {
     private static RatingsService ratingsServ;
-    private static Ratings ratings = RatingsFactory.createRatings(8868, "ORD98", 5, "" );
+    private static Ratings ratings = RatingsFactory.createRatings(8868, "ORD98", 5, "Friendly staff" );
+    private static Ratings ratings2 = RatingsFactory.createRatings(8798, "ORD14", 5, "Service was great!" );
+
 
 
     @Test

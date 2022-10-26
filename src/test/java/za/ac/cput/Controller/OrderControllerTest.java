@@ -7,7 +7,7 @@
 //import org.springframework.boot.test.context.SpringBootTest;
 //import org.springframework.boot.test.web.client.TestRestTemplate;
 //import org.springframework.http.*;
-//import za.ac.cput.Entity.Order;
+//import za.ac.cput.Entity.Orders;
 //import za.ac.cput.Factory.OrderFactory;
 //
 //import static org.junit.jupiter.api.Assertions.*;
@@ -16,49 +16,49 @@
 //@SpringBootTest(webEnvironment= SpringBootTest.WebEnvironment.RANDOM_PORT)
 //class OrderControllerTest {
 //
-//    private static Order order = OrderFactory.createOrder("Cust45", "ORD98","DRV25", 10, "Delivered", "14:32");
+//    private static Orders orders = OrderFactory.createOrder("21852", "ORD98","DRV25", 10, "Delivered", "14:32");
 //
 //    @Autowired
 //    private TestRestTemplate restTemplate;
-//    private  String baseURL = "http://localhost:8080/order/";
+//    private  String baseURL = "http://localhost:8080/orders/";
 //
 //
 //    @Test
 //    void create() {
 //        String url = baseURL + "/create";
-//        ResponseEntity<Order> postResponse = restTemplate.postForEntity(url, order, Order.class);
+//        ResponseEntity<Orders> postResponse = restTemplate.postForEntity(url, orders, Orders.class);
 //        assertNotNull(postResponse);
 //        assertNotNull(postResponse.getBody());
-//        order = postResponse.getBody();
-//        System.out.println("Order \n----------\n" + order);
-//        assertEquals(order.getOrderID(), postResponse.getBody().getOrderID());
+//        orders = postResponse.getBody();
+//        System.out.println("Order \n----------\n" + orders);
+//        assertEquals(orders.getOrderID(), postResponse.getBody().getOrderID());
 //
 //    }
 //
 //    @Test
 //    void read() {
-//        String url = baseURL + "/read/" + order.getTrackStatus();
+//        String url = baseURL + "/read/" + orders.getTrackStatus();
 //        System.out.println("URL: " + url);
-//        ResponseEntity<Order> response =
+//        ResponseEntity<Orders> response =
 //                restTemplate.getForEntity(
 //                        url,
-//                        Order.class
+//                        Orders.class
 //                );
 //        assertNotNull(response.getBody());
-//        assertEquals(order.getTrackStatus(), response.getBody().getTrackStatus());
+//        assertEquals(orders.getTrackStatus(), response.getBody().getTrackStatus());
 //
 //    }
 //
 //    @Test
 //    void update() {
-//        Order updated = new Order.Builder().copy(order).setOrderID("ORD94").build();
+//        Orders updated = new Orders.Builder().copy(orders).setOrderID("ORD94").build();
 //        String url = baseURL + "/update";
 //        System.out.println("Updated data\n------------\n" + updated);
-//        ResponseEntity<Order> response =
+//        ResponseEntity<Orders> response =
 //                restTemplate.postForEntity(
 //                        url,
 //                        updated,
-//                        Order.class
+//                        Orders.class
 //                );
 //        assertNotNull(response.getBody());
 //    }
@@ -67,7 +67,7 @@
 //    void getAll() {
 //        String url = baseURL+"/getall";
 //        org.springframework.http.HttpHeaders headers = new HttpHeaders();
-//        HttpEntity<Order> entity = new HttpEntity<>(null, headers);
+//        HttpEntity<Orders> entity = new HttpEntity<>(null, headers);
 //        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
 //        System.out.println("Orders: ");
 //        System.out.println(response);
@@ -76,7 +76,7 @@
 //    }
 //    @Test
 //    void delete() {
-//        String url = baseURL+"/delete/"+order.getOrderID() ;
+//        String url = baseURL+"/delete/"+orders.getOrderID() ;
 //        System.out.println("URL: "+url);
 //        restTemplate.delete(url);
 //

@@ -2,8 +2,9 @@ package za.ac.cput.Service.Interface;
 
 import za.ac.cput.Entity.Ratings;
 import za.ac.cput.Service.IService;
-import java.util.Set;
+
+import java.util.List;
 
 public interface IRatingsService extends IService<Ratings, String> {
-    public Set<Ratings> getAll();
+    public List<Ratings> getAll();
 }
